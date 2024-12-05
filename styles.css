@@ -486,7 +486,7 @@
     }
 }
 
-/* Mobile Devices */
+/* Mobile Devices (max-width: 768px) */
 @media screen and (max-width: 768px) {
     .navbar {
         padding: 1rem 0;
@@ -508,7 +508,6 @@
         display: none; /* Hidden by default on mobile */
     }
     
-    /* Add hamburger menu */
     .menu-toggle {
         display: block;
         position: absolute;
@@ -559,9 +558,19 @@
         font-size: 2rem;
     }
     
-    .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+     #corporate .menu-grid {
+    grid-template-columns: repeat(1, 1fr); /* Ensure 3 columns */
+    }
+      #events .menu-grid {
+       grid-template-columns: repeat(1, 1fr); /* Ensure 4 columns */
+       gap: 1.5rem;
+   }
+    
+    /* Ensure only one card is displayed */
+    .menu-item {
+        padding: 1rem;
+        width: 100%; /* Make sure the card spans the full width */
+        display: block; /* Ensure it's shown as a block element */
     }
     
     /* About Section */
@@ -575,7 +584,12 @@
     }
     
     .about-features {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column */
+    }
+    
+    .feature {
+        padding: 1rem; /* Adjust padding for better appearance */
+        width: 100%;
     }
     
     /* Contact Section */
@@ -612,7 +626,7 @@
     }
 }
 
-/* Small Mobile Devices */
+/* Small Mobile Devices (max-width: 480px) */
 @media screen and (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
@@ -632,6 +646,8 @@
     
     .menu-item {
         padding: 0.8rem;
+        width: 100%; /* Full width for small screens */
+        display: block; /* Ensure only one card is visible at a time */
     }
     
     .form-group input,
@@ -641,5 +657,10 @@
     
     .submit-btn {
         width: 100%;
+    }
+    
+    .about-features,
+    .menu-grid {
+        grid-template-columns: 1fr; /* Ensure a single column layout */
     }
 }
